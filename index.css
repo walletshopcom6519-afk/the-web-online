@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #040711;
+    color: #e2e8f0;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+/* Custom Electric Blue Glow Utilities */
+.shadow-electric {
+  box-shadow: 0 0 25px -5px rgba(0, 240, 255, 0.4);
+}
+
+.shadow-electric-lg {
+  box-shadow: 0 0 50px -10px rgba(0, 240, 255, 0.35);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
+}
+
+.border-glow-cyan {
+  border-color: rgba(0, 240, 255, 0.4);
+  box-shadow: 0 0 15px -3px rgba(0, 240, 255, 0.3);
+}
+
+/* Custom Scrollbar for dark cyber theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #040711;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff;
+}
+
+/* Glassmorphic Panel Base */
+.glass-panel {
+  background: rgba(10, 16, 32, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 240, 255, 0.12);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(15, 24, 48, 0.8);
+  border-color: rgba(0, 240, 255, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.2);
+}
+
+
+/* Responsive layout refinements only — preserves existing content, theme and behavior. */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { width: 100%; min-width: 320px; scroll-padding-top: 5rem; }
+  body { width: 100%; min-width: 320px; margin: 0; overflow-x: clip; }
+  img, video, canvas, svg { max-width: 100%; }
+  img, video { height: auto; }
+  button, input, select, textarea { max-width: 100%; }
+  input, select, textarea { min-width: 0; }
+  h1, h2, h3, p, a, button, label, span { overflow-wrap: anywhere; }
+  section { scroll-margin-top: 5rem; }
+}
+
+@media (max-width: 639px) {
+  body { font-size: 15px; }
+  section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+  h1 { line-height: 1.12; }
+  h2 { line-height: 1.2; }
+  .glass-panel { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  /* Keep content inside the viewport without changing its visual theme. */
+  .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl, .max-w-3xl, .max-w-2xl {
+    max-width: 100%;
+  }
+  input, select, textarea { font-size: 16px; }
+  button, a { touch-action: manipulation; }
+  table { display: block; max-width: 100%; overflow-x: auto; }
+  pre, code { overflow-wrap: anywhere; white-space: pre-wrap; }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  section { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+}
+
+@media (max-width: 767px) {
+  /* Dialogs and admin surfaces remain reachable on short/narrow screens. */
+  [role="dialog"], [aria-modal="true"] {
+    max-height: 92dvh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

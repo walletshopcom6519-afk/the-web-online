@@ -1,0 +1,6 @@
+{
+  "name": "Aetheris – Futuristic Tech Creator & Digital Resource Hub",
+  "description": "Public personal brand portfolio and high-tech digital resource library featuring electric blue aesthetics, downloadable tools, and social links.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,113 @@
+{
+  "entities": {
+    "profile": {
+      "path": "/profile/main",
+      "schema": {
+        "fullName": "string",
+        "username": "string",
+        "title": "string",
+        "headline": "string",
+        "bio": "string",
+        "avatarUrl": "string",
+        "headerLogoUrl": "string",
+        "location": "string",
+        "email": "string",
+        "stats": "array",
+        "skills": "array",
+        "competencies": "array"
+      }
+    },
+    "contactConfig": {
+      "path": "/config/contact",
+      "schema": {
+        "enabled": "boolean",
+        "phoneNumber": "string",
+        "callButtonText": "string",
+        "description": "string",
+        "officeHours": "string",
+        "whatsappDirect": "string"
+      }
+    },
+    "communityPopup": {
+      "path": "/config/community",
+      "schema": {
+        "enabled": "boolean",
+        "title": "string",
+        "subtitle": "string",
+        "telegramLink": "string",
+        "telegramTitle": "string",
+        "telegramDesc": "string",
+        "telegramIcon": "string",
+        "whatsappLink": "string",
+        "whatsappTitle": "string",
+        "whatsappDesc": "string",
+        "whatsappIcon": "string",
+        "footerNote": "string"
+      }
+    },
+    "socials": {
+      "path": "/socials/{socialId}",
+      "schema": {
+        "id": "string",
+        "name": "string",
+        "url": "string",
+        "icon": "string",
+        "handle": "string",
+        "color": "string",
+        "displayOrder": "number"
+      }
+    },
+    "categories": {
+      "path": "/categories/{categoryId}",
+      "schema": {
+        "id": "string",
+        "name": "string",
+        "icon": "string",
+        "count": "number"
+      }
+    },
+    "resources": {
+      "path": "/resources/{resourceId}",
+      "schema": {
+        "id": "string",
+        "title": "string",
+        "description": "string",
+        "category": "string",
+        "type": "string",
+        "downloadUrl": "string",
+        "thumbnailUrl": "string",
+        "size": "string",
+        "version": "string",
+        "isComingSoon": "boolean",
+        "isPremium": "boolean",
+        "filePassword": "string",
+        "downloads": "number",
+        "rating": "number",
+        "tags": "array",
+        "updatedAt": "string"
+      }
+    },
+    "contactSubmissions": {
+      "path": "/submissions/{ticketId}",
+      "schema": {
+        "id": "string",
+        "name": "string",
+        "email": "string",
+        "subject": "string",
+        "message": "string",
+        "createdAt": "string",
+        "status": "string"
+      }
+    },
+    "users": {
+      "path": "/users/{userId}",
+      "schema": {
+        "uid": "string",
+        "email": "string",
+        "fullName": "string",
+        "role": "string",
+        "createdAt": "string"
+      }
+    }
+  }
+}

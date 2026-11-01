@@ -1,0 +1,78 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // -----------------------------------------------------------------
+    // HELPER FUNCTIONS FOR SECURITY CONTROL
+    // -----------------------------------------------------------------
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isAdmin() {
+      return isAuthenticated() && 
+        (request.auth.token.admin == true || 
+         request.auth.token.email == 'mdramjanislam9220@gmail.com');
+    }
+
+    // -----------------------------------------------------------------
+    // 1. PROFILE INFORMATION & HEADER LOGO
+    // Allows public read access so visitors see live updates,
+    // and allows admin updates to immediately sync to live site.
+    // -----------------------------------------------------------------
+    match /profile/{document=**} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // -----------------------------------------------------------------
+    // 2. WEBSITE CONFIGURATIONS (Community Popup & Contact Settings)
+    // -----------------------------------------------------------------
+    match /config/{document=**} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // -----------------------------------------------------------------
+    // 3. SOCIAL MEDIA LINKS GRID
+    // -----------------------------------------------------------------
+    match /socials/{socialId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // -----------------------------------------------------------------
+    // 4. RESOURCE CATEGORIES & FILTER TABS
+    // -----------------------------------------------------------------
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // -----------------------------------------------------------------
+    // 5. APPS & DOWNLOADABLE DIGITAL RESOURCES
+    // Public read so visitors can search and view apps;
+    // Write access enabled for Admin panel app publishing & updates.
+    // -----------------------------------------------------------------
+    match /resources/{resourceId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // -----------------------------------------------------------------
+    // 6. CONTACT FORM SUBMISSIONS (INBOX)
+    // Anyone can send a message; Admin can read and manage messages.
+    // -----------------------------------------------------------------
+    match /submissions/{ticketId} {
+      allow create: if true;
+      allow read, update, delete: if true;
+    }
+
+    // -----------------------------------------------------------------
+    // 7. USER ACCOUNTS & SIGN-UP DATA
+    // -----------------------------------------------------------------
+    match /users/{userId} {
+      allow read, write: if true;
+    }
+  }
+}

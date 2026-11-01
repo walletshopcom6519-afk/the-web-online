@@ -1,0 +1,926 @@
+MASTER PROMPT: FIX AND UPGRADE THE EXISTING WEBSITE ADMIN PANEL WITHOUT CHANGING THE CURRENT WEBSITE FEATURES
+
+1. YOUR ROLE
+
+Act as a senior full-stack developer, database engineer, UI/UX specialist, security engineer, and performance optimization expert.
+
+Your task is to inspect, debug, repair, and improve the existing website's Admin Panel and User Panel while preserving the entire current website.
+
+You must work with the existing project, source code, database, framework, routing system, authentication, and design.
+
+Do not rebuild the website from scratch unless absolutely necessary.
+
+Do not remove, replace, redesign, or break any existing feature.
+
+The goal is to make every existing Admin Panel operation work correctly and add the requested management capabilities without changing the website's existing identity or functionality.
+
+2. ABSOLUTE RULE: PRESERVE THE CURRENT WEBSITE
+
+This requirement has the highest priority.
+
+You MUST preserve:
+
+- Existing homepage design.
+- Existing website layout and structure.
+- Existing header, navigation, and footer.
+- Existing colors, fonts, spacing, and animations.
+- Existing pages, sections, and components.
+- Existing user authentication and account functionality.
+- Existing routes and navigation behavior.
+- Existing apps, templates, ZIP files, downloads, and resources.
+- Existing responsive design for mobile, tablet, and desktop.
+- Existing integrations and database relationships.
+- Existing SEO settings and metadata.
+- Every currently working feature.
+
+Do not introduce unnecessary new pages or replace existing components.
+
+Do not change the website's current features simply because you prefer a different implementation.
+
+If a new management capability is needed, integrate it into the existing Admin Panel and User Panel.
+
+Only make the minimum changes required to fix bugs and implement the requested functionality.
+
+Before modifying anything, inspect the existing source code and understand how the website works.
+
+Create a backup or use version control before making potentially destructive changes.
+
+3. FIX EVERY ADMIN PANEL DELETE BUTTON
+
+Currently, the Delete buttons in the Admin Panel are not working correctly.
+
+Investigate the root cause and fix the actual problem instead of merely changing the button's appearance.
+
+Every existing Delete button must perform its intended operation successfully.
+
+This includes deletion of:
+
+- Apps.
+- Premium Apps.
+- Free Apps.
+- ZIP files.
+- CV templates.
+- Downloadable resources.
+- Images and banners.
+- Website sections.
+- Categories and subcategories.
+- Navigation items.
+- Custom links.
+- Announcements.
+- Contact information.
+- Other existing manageable content.
+
+Requirements:
+
+1. Clicking Delete must trigger the correct operation.
+2. Display a confirmation dialog before destructive actions.
+3. After confirmation, send the correct request to the backend.
+4. Validate the user's admin permissions on the server.
+5. Delete or deactivate the correct database record.
+6. Update the Admin Panel immediately after successful deletion.
+7. Update the User Panel so deleted content no longer appears.
+8. Show a clear success message.
+9. Show a meaningful error message if the operation genuinely fails.
+10. Prevent accidental deletion of unrelated records.
+11. Prevent duplicate submissions and repeated deletion requests.
+12. Handle loading states correctly.
+13. Ensure deletion works on mobile and desktop.
+14. Refresh the relevant data without requiring a full-page reload whenever possible.
+
+Fix all related problems involving API endpoints, HTTP methods, database queries, record IDs, state management, permissions, and frontend event handlers.
+
+IMPORTANT:
+Never display a fake success message when the database operation fails.
+
+For files stored in cloud storage or local storage, handle the associated file cleanup safely. Do not permanently delete a shared file that is still referenced by another resource.
+
+Use soft deletion or a recovery mechanism where appropriate and compatible with the existing architecture.
+
+4. FIX EVERY ADMIN PANEL EDIT BUTTON
+
+All Edit buttons must work correctly.
+
+The administrator must be able to edit every supported content type without manually changing the database.
+
+For each resource, provide the appropriate existing or integrated editing form.
+
+Depending on the resource type, editable fields may include:
+
+- Name.
+- Title.
+- Description.
+- Thumbnail or image.
+- Category.
+- Subcategory.
+- Download URL.
+- Destination URL.
+- ZIP file.
+- File password.
+- Application password.
+- Access type.
+- Price, if applicable.
+- Premium or free status.
+- Visibility.
+- Featured status.
+- Coming Soon status.
+- Display order.
+- Publication status.
+- Creation or update metadata.
+
+Requirements:
+
+- Load the existing record into the editing form.
+- Allow the administrator to modify the appropriate fields.
+- Validate inputs before submission.
+- Save changes to the actual database.
+- Update the Admin Panel immediately after success.
+- Update the User Panel with the latest published data.
+- Preserve fields that the administrator did not change.
+- Do not accidentally reset existing values.
+- Support image replacement without creating unnecessary duplicate files.
+- Handle optional fields correctly.
+- Display useful validation errors.
+- Prevent unauthorized users from editing resources.
+
+An Edit button must never be decorative or nonfunctional.
+
+5. COMPLETE ADMIN CONTROL SYSTEM
+
+The administrator must be able to manage all existing website content from the Admin Panel.
+
+Integrate management functionality into the existing dashboard wherever possible.
+
+The administrator should be able to:
+
+- Add new resources.
+- Edit existing resources.
+- Delete resources.
+- Publish or unpublish content.
+- Enable or disable resources.
+- Mark resources as Coming Soon.
+- Change visibility.
+- Set display order.
+- Upload images.
+- Upload supported files.
+- Set passwords for downloadable resources.
+- Configure optional destination links.
+- Manage free and premium access.
+- Update existing website information.
+- Manage available categories.
+- Control which content appears to users.
+
+All actions must be connected to the real backend and database.
+
+Do not create a dashboard that only works with temporary frontend state or hardcoded sample data.
+
+Persist all changes correctly.
+
+6. FLEXIBLE ADD RESOURCE SYSTEM
+
+Create or improve the existing Add Resource forms so the administrator can add different types of content without being forced to provide fields that do not apply.
+
+Depending on the selected resource type, allow the administrator to enter:
+
+- Resource name.
+- Image or thumbnail.
+- Description.
+- Category.
+- Resource type.
+- Password, if required.
+- Downloadable file, if applicable.
+- Download URL, if applicable.
+- Destination URL, if applicable.
+- Access type.
+- Free or premium status.
+- Publication status.
+- Coming Soon status.
+- Optional additional information.
+
+IMPORTANT: CONDITIONAL FIELDS
+
+Not every resource requires a URL.
+
+For example:
+
+- An application may require a download link.
+- A ZIP template may use an uploaded file.
+- A password-protected resource may require a password.
+- A Coming Soon application may not have a download link yet.
+- An informational section may require only a title, image, and description.
+- A phone contact may require a phone number but not a webpage URL.
+
+The form must intelligently display the fields relevant to the selected resource type.
+
+Fields that are not applicable should remain optional or hidden.
+
+Do not force the administrator to enter unnecessary information.
+
+Do not show validation errors for fields that are legitimately optional.
+
+However, if a resource is being published as downloadable and requires a file or download destination, validate that requirement before publishing.
+
+Provide a clear distinction between:
+
+1. Uploaded file.
+2. External download URL.
+3. Internal website destination.
+4. Optional URL.
+5. Password-protected resource.
+6. Coming Soon resource.
+
+Validate URLs only when the relevant resource type actually requires them.
+
+7. ZIP FILE PASSWORD SYSTEM
+
+Implement a reliable password system for ZIP files and other supported downloadable resources.
+
+The administrator must be able to:
+
+- Upload a ZIP file.
+- Set a password for the resource.
+- Change the password.
+- Replace the ZIP file.
+- Edit the resource name.
+- Edit the description.
+- Configure download behavior.
+- Set access permissions.
+- Enable or disable the resource.
+- Delete the resource.
+
+User experience
+
+On the User Panel, display the resource's:
+
+- Name.
+- Thumbnail.
+- Description.
+- Download button.
+- Password information, when appropriate.
+- Additional resource information, if configured.
+
+If the resource has a password, clearly explain that the password is required to extract or open the protected archive.
+
+When the administrator has configured a password for the ZIP archive, the password shown to the user must match the password actually used to encrypt that archive.
+
+Do not merely attach a password to an unencrypted ZIP file and claim that the file is password-protected.
+
+If a ZIP file must be protected against opening without a password, use genuine archive encryption, such as a supported AES-encrypted ZIP format.
+
+If a password is changed, the system must not falsely imply that an existing ZIP file has been re-encrypted.
+
+Only update the actual archive encryption when the file is successfully reprocessed or replaced.
+
+Free password distribution
+
+For free resources, the administrator may choose to make the password publicly available to users.
+
+When the administrator enables this option:
+
+- Display the password on the relevant resource page.
+- Allow users to copy the password easily.
+- Let users download the associated file.
+- Explain how to use the password to extract the archive.
+
+If the password is intended to be private, do not expose it publicly.
+
+Do not expose passwords through unnecessary API responses, browser console logs, or publicly accessible database records.
+
+Password-protected download behavior
+
+If the user clicks a resource link, follow the configured behavior:
+
+- Download the associated file when a file download is intended.
+- Navigate directly to the configured destination when a destination page is intended.
+- Display the resource details when the user must first review the resource.
+- Request authentication or access authorization if the resource is restricted.
+
+Do not redirect every resource to a generic destination.
+
+Do not require a destination URL when the resource uses a direct file download.
+
+8. PREMIUM APPS MANAGEMENT
+
+Add or improve the Premium Apps management section in the existing Admin Panel.
+
+The administrator must be able to create, edit, delete, publish, unpublish, and mark applications as Coming Soon.
+
+Each Premium App can support the following fields:
+
+- Application name.
+- Application logo or thumbnail.
+- Short description.
+- Full description.
+- Version.
+- Category.
+- Download URL.
+- Uploaded installation file, if supported.
+- Application password, if applicable.
+- Free or premium access type.
+- Coming Soon status.
+- Publication status.
+- Display order.
+- Optional additional details.
+
+All fields must be configurable according to the application type.
+
+Application statuses
+
+Support these states:
+
+1. Published.
+2. Draft or unpublished.
+3. Coming Soon.
+4. Disabled.
+5. Deleted.
+
+Apply these states consistently to the existing architecture.
+
+Coming Soon behavior
+
+When an administrator marks an application as Coming Soon:
+
+- Display the application on the User Panel if its visibility is enabled.
+- Show a clear Coming Soon badge.
+- Hide or disable the download action.
+- Do not show a broken download link.
+- Do not require a download URL until the administrator publishes the application as downloadable.
+
+Delete behavior
+
+When an administrator deletes a Premium App:
+
+- Ask for confirmation.
+- Delete or deactivate the correct database record.
+- Remove the app from the published User Panel.
+- Update the Admin Panel list immediately.
+- Handle any associated image or file safely.
+- Display an accurate success or error message.
+
+Every Add, Edit, Delete, Publish, and Coming Soon action must work correctly.
+
+9. APP PASSWORD DISPLAY
+
+Allow the administrator to configure an application password when the application or its downloadable package requires one.
+
+The administrator must be able to enter:
+
+Application Name: [Application Name]
+
+Password: [Configured Password]
+
+Description: [Optional Description]
+
+Download File or URL: [Optional, depending on resource type]
+
+Access Type: [Free / Premium / Restricted]
+
+Status: [Published / Coming Soon / Draft]
+
+The User Panel should display the application name and password only when the administrator has enabled password visibility for that resource and the current user is authorized to access it.
+
+Provide a copy-password button where appropriate.
+
+Show a download button only when a valid download method is configured and the resource is available.
+
+For actual encrypted archives, ensure the displayed password matches the archive password.
+
+Never assume that displaying a password automatically grants access to an external service or application.
+
+10. CV TEMPLATE MANAGEMENT
+
+Add or improve CV Template management within the existing Admin Panel.
+
+The administrator should be able to:
+
+- Add a CV template.
+- Upload a template file.
+- Upload a preview image.
+- Set a template name.
+- Add a description.
+- Set a password, if applicable.
+- Configure the download method.
+- Set free or premium access.
+- Edit template information.
+- Replace the file.
+- Delete the template.
+- Publish or unpublish the template.
+- Mark it as Coming Soon when appropriate.
+
+User Panel behavior
+
+Users should be able to:
+
+- Browse available CV templates.
+- View template previews.
+- Read descriptions.
+- Copy a password if one is provided.
+- Download available templates.
+- Follow a configured destination link if required.
+
+Do not require a password for templates that do not need one.
+
+Do not require a URL when a template is delivered through an uploaded file.
+
+For encrypted template archives, the displayed password must match the real archive password.
+
+11. CONTACT ADMINISTRATION AND CLICK-TO-CALL
+
+Allow the administrator to configure the contact phone number from the Admin Panel.
+
+The administrator must be able to:
+
+- Add a phone number.
+- Change the phone number.
+- Enable or disable the contact button.
+- Configure the relevant contact destination.
+- Update contact-related text if supported.
+
+User Panel behavior
+
+Display only the configured contact icon where that matches the current website design.
+
+Do not display the full phone number as visible text when the administrator has enabled hidden-number mode.
+
+When a user taps the phone icon, initiate the configured phone call using the appropriate mobile telephone link.
+
+Use the correct "tel:" destination.
+
+For example, a configured number should generate a clickable telephone action rather than a broken ordinary webpage link.
+
+Do not hardcode an administrator's personal phone number into frontend components.
+
+The configured number must come from the appropriate saved settings.
+
+On devices without calling capability, preserve graceful behavior.
+
+If no contact number is configured, do not generate a broken phone action. Follow the existing website's behavior or hide the unavailable action.
+
+12. COMPLETE WEBSITE CONTENT MANAGEMENT
+
+Allow the administrator to manage all existing editable website content from the Admin Panel.
+
+Where the current architecture supports it, make the following configurable:
+
+Header
+
+- Website logo.
+- Website title.
+- Navigation items.
+- Optional links.
+- Header text.
+- Relevant display settings.
+
+Homepage
+
+- Existing banners.
+- Images.
+- Titles.
+- Descriptions.
+- Resource cards.
+- Featured applications.
+- Downloadable resources.
+- Existing homepage sections.
+- Visibility and ordering.
+
+Main content
+
+- Section titles.
+- Descriptions.
+- Categories.
+- App listings.
+- Template listings.
+- Buttons and their actions.
+- Optional destination URLs.
+- Images and thumbnails.
+- Published content.
+
+Footer
+
+- Footer text.
+- Existing navigation links.
+- Contact icon settings.
+- Social media links.
+- Copyright text.
+- Other existing editable footer content.
+
+Global settings
+
+- Website title and branding.
+- Existing configurable text.
+- Default contact settings.
+- Available resource categories.
+- Relevant display settings.
+- Existing SEO fields, where applicable.
+
+Do not create a new website design to accomplish this.
+
+Integrate the controls into the existing Admin Panel.
+
+Only expose settings that are compatible with the current architecture.
+
+Changes must be saved persistently and reflected in the User Panel without requiring code changes.
+
+For published settings, update the affected website content promptly.
+
+Do not require administrators to manually edit source code for ordinary content changes.
+
+Do not let user-submitted content overwrite administrative settings.
+
+13. REAL-TIME OR IMMEDIATE USER PANEL UPDATES
+
+Whenever an administrator adds, edits, deletes, publishes, or changes a resource's status, the User Panel must reflect the latest saved information.
+
+Implement the appropriate approach for the existing technology stack.
+
+Preferred options include:
+
+- Existing reactive data fetching.
+- Cache invalidation.
+- Database subscriptions, where supported.
+- WebSocket or real-time subscriptions, where already appropriate.
+- Lightweight periodic refreshes when necessary.
+- Server-side cache invalidation.
+
+Do not introduce an unnecessarily complex real-time system if the current architecture already supports efficient updates.
+
+Requirements:
+
+- New published items appear correctly.
+- Edited content displays updated information.
+- Deleted content disappears from public listings.
+- Coming Soon status updates correctly.
+- Download buttons reflect the current resource state.
+- Password visibility follows the configured settings.
+- Contact information updates correctly.
+- Header and footer changes become visible.
+- Unpublished content remains hidden from ordinary users.
+
+Protect the Admin Panel from accidentally showing stale or outdated information after successful changes.
+
+14. ADMIN PANEL ERROR HANDLING
+
+The Admin Panel must be robust, predictable, and easy to use.
+
+Fix errors associated with:
+
+- Adding records.
+- Editing records.
+- Deleting records.
+- Uploading files.
+- Uploading images.
+- Saving passwords.
+- Updating settings.
+- Saving URLs.
+- Publishing resources.
+- Changing resource statuses.
+- Missing optional fields.
+- Invalid required fields.
+- Database connectivity.
+- API requests.
+- Authentication.
+- File storage.
+- Loading and refreshing data.
+
+Error handling requirements
+
+1. Prevent avoidable frontend crashes.
+2. Handle API errors gracefully.
+3. Validate required inputs.
+4. Keep optional fields optional.
+5. Show a clear message when a real operation fails.
+6. Preserve the user's entered form data when safe to do so.
+7. Prevent duplicate submissions.
+8. Show loading indicators during long operations.
+9. Handle unavailable files or URLs.
+10. Avoid blank screens and unhandled exceptions.
+11. Never show a success message for an unsuccessful database operation.
+12. Never silently ignore a failed operation.
+
+IMPORTANT:
+Do not implement a blanket error-suppression mechanism.
+
+Do not hide real failures just to make the Admin Panel appear error-free.
+
+Instead, fix the underlying bugs and provide clear, actionable error messages for exceptional situations.
+
+15. PERFORMANCE OPTIMIZATION
+
+The entire website must remain fast, responsive, and lightweight.
+
+Do not introduce unnecessary delays or expensive background operations.
+
+Optimize the existing implementation where necessary.
+
+Requirements:
+
+- Avoid unnecessary full-page reloads.
+- Prevent repeated API requests.
+- Eliminate avoidable database queries.
+- Use pagination for large resource collections.
+- Optimize image loading and image sizes.
+- Use lazy loading for noncritical images.
+- Avoid loading all large files into browser memory.
+- Use appropriate caching and cache invalidation.
+- Avoid unnecessary component re-rendering.
+- Optimize database queries and indexes when appropriate.
+- Prevent memory leaks and duplicate event listeners.
+- Keep forms responsive during uploads.
+- Handle upload progress for large files.
+- Use background processing for expensive archive operations when appropriate.
+- Preserve mobile responsiveness.
+- Do not sacrifice correctness or security for speed.
+
+Never display stale content indefinitely just to improve performance.
+
+Use cache invalidation after successful updates.
+
+16. SECURITY REQUIREMENTS
+
+Preserve the existing authentication system and improve it only where necessary to support secure administration.
+
+The Admin Panel must be accessible only to authorized administrators.
+
+Requirements:
+
+- Enforce admin permissions on the server.
+- Never rely solely on frontend route protection.
+- Validate every administrative API request.
+- Protect against unauthorized editing and deletion.
+- Use parameterized database queries or the framework's safe database APIs.
+- Validate uploaded file types and sizes.
+- Prevent path traversal and unsafe file handling.
+- Restrict uploads to appropriate file types.
+- Protect against common web vulnerabilities.
+- Avoid exposing database credentials or private API keys.
+- Do not expose sensitive passwords in public APIs.
+- Use secure password handling where credentials are intended for authentication.
+- Store encryption keys and privileged secrets securely.
+- Apply appropriate access controls to downloadable resources.
+
+Do not weaken existing security controls to make a feature work.
+
+Important distinction
+
+A ZIP extraction password is not the same as an administrator login password.
+
+A publicly displayed resource password should not be treated as a secret authentication credential.
+
+For premium or restricted content, enforce authorization on the backend rather than relying only on a hidden download button or an unlisted URL.
+
+17. DATABASE AND BACKEND INTEGRATION
+
+Inspect the existing database schema and backend before making changes.
+
+Reuse existing tables, collections, models, and relationships whenever possible.
+
+Do not create duplicate records or parallel systems unnecessarily.
+
+Ensure that:
+
+- Each resource has a stable unique identifier.
+- Update operations target the correct record.
+- Delete operations target the correct record.
+- Required database relationships remain intact.
+- Optional fields support null or empty values where appropriate.
+- File metadata is stored consistently.
+- Status fields use a consistent representation.
+- Database migrations are safe and reversible where practical.
+- Existing data is preserved.
+- Errors are logged appropriately on the server.
+- API responses are consistent.
+
+If schema changes are necessary, implement appropriate migrations and preserve existing records.
+
+Never delete or reset the entire database to fix a CRUD problem.
+
+18. ADMIN PANEL USER EXPERIENCE
+
+Preserve the current Admin Panel design unless a minor usability improvement is required to make the requested functions work.
+
+For each resource, make sure the administrator can clearly identify:
+
+- Add.
+- Edit.
+- Delete.
+- Publish or unpublish.
+- Coming Soon.
+- Upload or replace file.
+- Configure password.
+- Configure access type.
+- Configure optional links.
+
+Use appropriate confirmation dialogs, loading states, validation messages, and success notifications.
+
+Prevent buttons from appearing enabled when the operation is unavailable.
+
+Use clear labels and consistent behavior throughout the dashboard.
+
+Do not add unnecessary decorative elements that make the dashboard slower or harder to use.
+
+19. FRONTEND AND BACKEND CONSISTENCY
+
+The Admin Panel, backend, database, file storage, and User Panel must remain synchronized.
+
+Every operation must follow this sequence:
+
+1. Administrator performs an action.
+2. Frontend validates the relevant input.
+3. Backend verifies authorization.
+4. Backend validates the request.
+5. Database or file storage performs the operation.
+6. Backend returns the actual result.
+7. Frontend updates the relevant state.
+8. User Panel receives or fetches the updated published data.
+9. A success or failure message is displayed accurately.
+
+Do not rely exclusively on local frontend state for persistent changes.
+
+Do not make the User Panel display an item as deleted when the backend operation has failed.
+
+Do not allow stale frontend data to overwrite a more recent database update.
+
+20. TESTING REQUIREMENTS
+
+Before declaring the work complete, test the existing website and every modified feature.
+
+CRUD tests
+
+- Add a resource.
+- Edit its name.
+- Edit its description.
+- Change its image.
+- Change its URL.
+- Remove an optional URL.
+- Save the record.
+- Delete the record.
+- Verify the database result.
+- Verify the User Panel result.
+
+Premium Apps tests
+
+- Add a Premium App.
+- Edit the app.
+- Set a password.
+- Enable password visibility.
+- Disable password visibility.
+- Configure a download file.
+- Configure an external download URL.
+- Mark the app as Coming Soon.
+- Publish the app.
+- Delete the app.
+
+ZIP tests
+
+- Upload a ZIP file.
+- Configure its extraction password.
+- Verify that the archive is genuinely encrypted when encryption is required.
+- Download the archive.
+- Verify extraction using the configured password.
+- Change the password and verify the resulting behavior.
+- Replace the ZIP file.
+- Delete the resource.
+- Verify that unrelated files remain intact.
+
+CV Template tests
+
+- Add a template.
+- Upload a preview image.
+- Upload the template file.
+- Set an optional password.
+- Edit the template.
+- Download the template.
+- Delete the template.
+
+Contact tests
+
+- Configure a phone number.
+- Change the phone number.
+- Click the contact icon.
+- Verify that the configured "tel:" destination is used.
+- Disable the contact button.
+- Verify graceful behavior when no phone number exists.
+
+Website settings tests
+
+- Update header content.
+- Update homepage content.
+- Update a section title.
+- Update the footer.
+- Change an optional link.
+- Save changes.
+- Verify the updated public website.
+
+Security tests
+
+- Attempt unauthorized administrative actions.
+- Verify that non-admin users cannot modify content.
+- Verify that unpublished resources are not exposed publicly.
+- Verify that restricted downloads require authorization.
+- Verify that sensitive passwords are not leaked through public APIs.
+
+Regression tests
+
+Verify that all existing features continue working as they did before the changes.
+
+Test mobile, tablet, and desktop layouts.
+
+Check browser console errors, backend logs, API failures, and database errors.
+
+Do not claim that a test passed unless it was actually performed.
+
+21. IMPLEMENTATION WORKFLOW
+
+Follow this workflow in order.
+
+PHASE 1 — INSPECTION
+
+Inspect the existing project structure, framework, frontend components, backend APIs, database schema, authentication, file storage, and Admin Panel implementation.
+
+Identify why the existing Edit and Delete buttons fail.
+
+PHASE 2 — BACKUP
+
+Create a backup or use version control.
+
+Record the current behavior of the website and identify features that must remain unchanged.
+
+PHASE 3 — BUG FIXES
+
+Fix the existing Add, Edit, and Delete functionality first.
+
+Resolve the underlying API, database, state-management, routing, and permission problems.
+
+PHASE 4 — FEATURE INTEGRATION
+
+Implement the configurable ZIP password system, Premium Apps management, CV Template management, contact settings, conditional fields, and website content management.
+
+Reuse existing components and backend infrastructure wherever possible.
+
+PHASE 5 — LIVE UPDATES
+
+Ensure that published changes are reflected in the User Panel using the appropriate update and cache invalidation strategy.
+
+PHASE 6 — PERFORMANCE AND SECURITY
+
+Optimize performance, preserve access controls, and verify that private resources remain protected.
+
+PHASE 7 — TESTING
+
+Run the relevant tests, fix regressions, and verify the complete workflow.
+
+PHASE 8 — FINAL REPORT
+
+Provide a concise report describing:
+
+- The root cause of the Delete button problem.
+- The root cause of the Edit button problem.
+- The files or components changed.
+- The backend and database changes made.
+- The features implemented.
+- The tests actually performed.
+- Any remaining issues or external configuration requirements.
+
+22. FINAL ACCEPTANCE CRITERIA
+
+The task is complete only when all applicable conditions below are satisfied:
+
+1. Every existing Delete button works correctly.
+2. Every existing Edit button works correctly.
+3. Add operations save data persistently.
+4. Uploaded images and files work correctly.
+5. Optional links do not cause irrelevant validation errors.
+6. Required download destinations are validated when necessary.
+7. ZIP passwords match the actual archive encryption when encryption is required.
+8. Free resources can expose their configured passwords when intended.
+9. Premium Apps can be added, edited, deleted, published, and marked Coming Soon.
+10. CV Templates can be added, edited, downloaded, and deleted.
+11. Contact icons use the administrator-configured phone number.
+12. Header, homepage, sections, and footer content can be managed where supported.
+13. Published changes appear correctly in the User Panel.
+14. Restricted resources remain protected.
+15. Unauthorized users cannot access administrative operations.
+16. The website remains fast and responsive.
+17. The existing website design and features remain intact.
+18. No unrelated database records or files are accidentally deleted.
+19. No fake success messages hide failed operations.
+20. All tested functionality behaves correctly.
+
+FINAL INSTRUCTION
+
+Start by examining the existing project and identifying the root causes of the current problems.
+
+Then implement the fixes directly in the existing codebase.
+
+Do not merely provide suggestions, sample code, mockups, or a demonstration dashboard.
+
+Make real, persistent, end-to-end changes to the existing application wherever the available environment permits.
+
+Do not claim that an operation works unless you have verified it.
+
+Do not change the existing website's design, layout, routes, branding, or working features unnecessarily.
+
+Preserve all existing data.
+
+Fix the problems first, integrate the requested functionality carefully, and verify the final result.
+
+THE HIGHEST PRIORITY IS TO PRESERVE THE CURRENT WEBSITE WHILE MAKING THE ADMIN PANEL'S ACTUAL OPERATIONS WORK RELIABLY.
